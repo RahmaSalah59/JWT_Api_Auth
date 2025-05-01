@@ -57,8 +57,7 @@ namespace WebApplication1.Controllers
 
                     return Ok(new {
                         message = "Account added successfully, Please confirm your Email",
-                        confirmationLink = confirmationLink
-                    });
+                       });
                 }
                 foreach (var item in result.Errors)
                 {
