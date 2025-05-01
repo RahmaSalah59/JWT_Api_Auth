@@ -58,32 +58,6 @@ A secure and modular ASP.NET Core Web API implementing JSON Web Token (JWT) auth
 - **Migrations**: Manage database schema changes using EF Core migrations.
 - **wwwroot**: Serve static files if needed.
 
-## Configuration
-
-Update the `appsettings.json` file with your specific settings:
-
-```json
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "YourDatabaseConnectionString"
-  },
-  "Jwt": {
-    "Key": "YourSecretKey",
-    "Issuer": "YourIssuer",
-    "Audience": "YourAudience",
-    "ExpireMinutes": 60
-  },
-  "Logging": {
-    "LogLevel": {
-      "Default": "Information",
-      "Microsoft": "Warning",
-      "Microsoft.Hosting.Lifetime": "Information"
-    }
-  },
-  "AllowedHosts": "*"
-}
-```
-
 - **Key**: A secret key used to sign the JWT tokens.
 - **Issuer**: Identifies the principal that issued the JWT.
 - **Audience**: Identifies the recipients that the JWT is intended for.
@@ -93,72 +67,10 @@ Update the `appsettings.json` file with your specific settings:
 
 Here are some of the primary endpoints exposed by the API:
 
-- **POST** `/api/auth/register`: Register a new user.
-- **POST** `/api/auth/login`: Authenticate a user and receive a JWT.
-- **GET** `/api/users`: Retrieve a list of users (requires authentication).
-- **GET** `/api/users/{id}`: Retrieve user details by ID (requires authentication).
-
-> **Note**: Replace `/api/` with your actual route prefixes if they differ.
-
-## Usage
-
-1. **Register a new user**:
-
-   Send a POST request to `/api/auth/register` with the following JSON body:
-
-   ```json
-   {
-     "username": "yourusername",
-     "email": "youremail@example.com",
-     "password": "YourSecurePassword"
-   }
-   ```
-
-2. **Login**:
-
-   Send a POST request to `/api/auth/login` with the following JSON body:
-
-   ```json
-   {
-     "email": "youremail@example.com",
-     "password": "YourSecurePassword"
-   }
-   ```
-
-   On successful authentication, you'll receive a JWT token.
-
-3. **Access protected routes**:
-
-   Include the JWT token in the `Authorization` header of your requests:
-
-   ```http
-   Authorization: Bearer your_jwt_token
-   ```
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. **Fork the repository**.
-2. **Create a new branch**:
-
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-
-3. **Commit your changes**:
-
-   ```bash
-   git commit -m "Add your feature"
-   ```
-
-4. **Push to the branch**:
-
-   ```bash
-   git push origin feature/YourFeature
-   ```
-
-5. **Open a pull request**.
+- **POST** `/api/account/register`: Register a new user.
+- **POST** `/api/account/Login`: Authenticate a user and receive a JWT.
+- **GET** `/api/account/ConfirmEmail`:confirm email address.
+- **POST** `/api/account/LogOut`: remind frontend to remove token
 
 ## License
 
